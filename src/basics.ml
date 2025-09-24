@@ -6,14 +6,28 @@ let abs x =
 (* Part 1: Non-Recursive Functions *)
 (***********************************)
 
-let rev_tup (tup : 'a * 'b) = failwith "unimplemented"
-let rev_triple (tup : 'a * 'b * 'c) = failwith "unimplemented"
+let rev_tup (tup : 'a * 'b) = 
+  match tup with
+  | (first, second) -> (second, first)
+let rev_triple (tup : 'a * 'b * 'c) = 
+  match tup with
+  | (first, second, third) -> (third, second, first)
 
-let is_odd x = failwith "unimplemented"
+let is_odd x = x mod 2 == 1
 
-let is_older (date1: int * int * int) (date2: int * int * int) = failwith "unimplemented"
+let is_older (date1: int * int * int) (date2: int * int * int) =
+  match (date1, date2) with
+  | (y1, m1, d1), (y2, m2, d2) ->
+    if y1 < y2 then true
+    else if y1 > y2 then false
+    else if m1 < m2 then true
+    else if m1 > m2 then false
+    else if d1 < d2 then true
+    else false
 
-let to_us_format (date1: int * int * int) = failwith "unimplemented"
+let to_us_format (date1: int * int * int) = 
+  match date1 with
+  | (year, month, day) -> (month, day, year)
 (*******************************)
 (* Part 2: Recursive Functions *)
 (*******************************)
