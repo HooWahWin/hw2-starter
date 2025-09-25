@@ -32,16 +32,34 @@ let to_us_format (date1: int * int * int) =
 (* Part 2: Recursive Functions *)
 (*******************************)
 
-let rec pow x p = failwith "unimplemented"
+let rec pow x p = 
+  if p == 0 then 1
+  else if p == 1 then x
+  else x * pow (x) (p - 1)
 
-let rec fac n = failwith "unimplemented"
+
+let rec fac n = 
+  if n == 0 || n == 1 then 1
+  else n * fac (n - 1) 
 
 (*****************)
 (* Part 3: Lists *)
 (*****************)
 
-let rec get_nth ((idx:int), (lst: 'a list)) = failwith "unimplemented"
+let rec get_nth ((idx:int), (lst: 'a list)) = 
+  if idx == 0 then List.hd lst
+  else get_nth(idx - 1, List.tl lst)
 
-let larger lst1 lst2 = failwith "unimplemented"
 
-let sum lst1 lst2 = failwith "unimplemented"
+let larger lst1 lst2 = 
+  if List.length lst1 > List.length lst2 then lst1
+  else if List.length lst1 < List.length lst2 then lst2
+  else []
+
+let rec sum_list (lst: 'a list): int = 
+  if List.is_empty lst then 0
+  else List.hd lst + sum_list(List.tl lst)
+  
+let sum lst1 lst2 = 
+  sum_list lst1 + sum_list lst2
+  
