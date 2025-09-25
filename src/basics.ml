@@ -13,7 +13,7 @@ let rev_triple (tup : 'a * 'b * 'c) =
   match tup with
   | (first, second, third) -> (third, second, first)
 
-let is_odd x = x mod 2 == 1
+let is_odd x = abs(x) mod 2 == 1
 
 let is_older (date1: int * int * int) (date2: int * int * int) =
   match (date1, date2) with
@@ -59,7 +59,7 @@ let larger lst1 lst2 =
 let rec sum_list (lst: 'a list): int = 
   if List.is_empty lst then 0
   else List.hd lst + sum_list(List.tl lst)
-  
+
 let sum lst1 lst2 = 
   sum_list lst1 + sum_list lst2
   
