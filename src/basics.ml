@@ -57,8 +57,9 @@ let larger lst1 lst2 =
   else []
 
 let rec sum_list (lst: 'a list): int = 
-  if List.is_empty lst then 0
-  else List.hd lst + sum_list(List.tl lst)
+  match lst with
+  | [] -> 0
+  | _ -> List.hd lst + sum_list(List.tl lst)
 
 let sum lst1 lst2 = 
   sum_list lst1 + sum_list lst2
