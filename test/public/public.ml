@@ -67,7 +67,7 @@ let test_sum _ =
 
 let suite =
   "public" >::: [
-    "rev_tup" >:: test_rev_tup;
+    "rev_tup123" >:: test_rev_tup;
     "rev_triple" >:: test_rev_triple;
     "is_odd" >:: test_is_odd;
     "is_older" >:: test_is_older;
